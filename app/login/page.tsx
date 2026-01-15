@@ -39,27 +39,84 @@ export default function LoginPage() {
   }
 
   return (
-    <div style={{ maxWidth: 420, margin: "40px auto" }}>
-      <h1 style={{ fontSize: 22, fontWeight: 700 }}>Login</h1>
-      <form
-        onSubmit={onSubmit}
-        style={{ display: "grid", gap: 10, marginTop: 14 }}
-      >
-        <input name="email" placeholder="Email" type="email" required />
-        <input
-          name="password"
-          placeholder="Password"
-          type="password"
-          required
-        />
-        <button disabled={loading} type="submit">
-          {loading ? "Signing in..." : "Login"}
-        </button>
-        {err && <p style={{ color: "crimson" }}>{err}</p>}
-      </form>
-      <p style={{ marginTop: 10 }}>
-        No account? <a href="/register">Register</a>
-      </p>
+    <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 flex items-center justify-center p-4">
+      <div className="w-full max-w-md">
+        {/* Card */}
+        <div className="rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl shadow-xl">
+          {/* Header */}
+          <div className="px-6 pt-6 pb-4">
+            <h1 className="text-2xl font-bold tracking-tight text-white">
+              Welcome back
+            </h1>
+            <p className="mt-1 text-sm text-white/60">
+              Sign in to manage your tickets.
+            </p>
+          </div>
+
+          {/* Form */}
+          <form onSubmit={onSubmit} className="px-6 pb-6 space-y-4">
+            {/* Email */}
+            <div className="space-y-1.5">
+              <label className="text-sm font-medium text-white/80">Email</label>
+              <input
+                name="email"
+                placeholder="you@example.com"
+                type="email"
+                required
+                className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-2.5 text-white placeholder:text-white/30 outline-none focus:ring-2 focus:ring-indigo-500/60 focus:border-indigo-500/40"
+              />
+            </div>
+
+            {/* Password */}
+            <div className="space-y-1.5">
+              <label className="text-sm font-medium text-white/80">
+                Password
+              </label>
+              <input
+                name="password"
+                placeholder="Your password"
+                type="password"
+                required
+                className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-2.5 text-white placeholder:text-white/30 outline-none focus:ring-2 focus:ring-indigo-500/60 focus:border-indigo-500/40"
+              />
+            </div>
+
+            {/* Error */}
+            {err && (
+              <div className="rounded-xl border border-red-500/30 bg-red-500/10 px-4 py-3 text-sm text-red-200">
+                {err}
+              </div>
+            )}
+
+            {/* Submit */}
+            <button
+              disabled={loading}
+              type="submit"
+              className="w-full rounded-xl bg-indigo-600 px-4 py-2.5 font-semibold text-white shadow-lg shadow-indigo-600/20 hover:bg-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500/60 disabled:opacity-60 disabled:cursor-not-allowed"
+            >
+              {loading ? "Signing in..." : "Login"}
+            </button>
+
+            {/* Divider */}
+            <div className="flex items-center gap-3">
+              <div className="h-px flex-1 bg-white/10" />
+              <span className="text-xs text-white/40">new here?</span>
+              <div className="h-px flex-1 bg-white/10" />
+            </div>
+
+            {/* Footer link */}
+            <p className="text-center text-sm text-white/60">
+              No account?{" "}
+              <a
+                href="/register"
+                className="font-semibold text-indigo-300 hover:text-indigo-200 underline underline-offset-4"
+              >
+                Register
+              </a>
+            </p>
+          </form>
+        </div>
+      </div>
     </div>
   );
 }

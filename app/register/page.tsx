@@ -56,13 +56,12 @@ export default function RegisterPage() {
           <form onSubmit={onSubmit} className="px-6 pb-6 space-y-4">
             {/* Name */}
             <div className="space-y-1.5">
-              <label className="text-sm font-medium text-white/80">
-                Name (optional)
-              </label>
+              <label className="text-sm font-medium text-white/80">Name</label>
               <input
                 name="name"
                 placeholder="Your name"
-                className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-2.5 text-white placeholder:text-white/30 outline-none focus:ring-2 focus:ring-indigo-500/60 focus:border-indigo-500/40"
+                required
+                className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-2.5 text-white placeholder:text-white/30 outline-none focus:ring-2 focus:ring-indigo-500/60 focus:border-indigo-500/40 "
               />
             </div>
 
@@ -130,11 +129,6 @@ export default function RegisterPage() {
             </p>
           </form>
         </div>
-
-        {/* Bottom small note */}
-        <p className="mt-4 text-center text-xs text-white/30">
-          By registering, you agree to basic usage of this demo app.
-        </p>
       </div>
     </div>
   );
